@@ -13,19 +13,50 @@ const Card = ({ index, onInputChange, onDeleteCard }) => {
   const handleDeleteCard = () => {
     onDeleteCard(index);
   };
+
+  const handleCandidateClick = (e) => {
+    e.preventDefault();
+    const { innerText, parentNode } = e.target;
+    console.log("candidate?", [innerText, parentNode.id]);
+  };
   const inputSnippet = (items) => {
     return (
       <>
         <div>
-          <div className="form__group field">
+          <div className="form__group field relative">
             <input
+              list="mainSku"
+              id={`${items.key}`}
               type="input"
-              className="form__field text-red"
+              className="form__field text-red peer"
               placeholder={`${items.name}`}
               required
               name={`${items.key}`}
               onChange={handleInputChange}
             />
+            <div
+              className="bg-gradient-to-r from-[#116399] to-[#38caef] z-30 absolute border-none h-0 bg-slate-400 w-full  overflow-hidden transition-all peer-focus:h-[120px] flex flex-col"
+              id={`${items.key}`}
+            >
+              <div
+                className="cursor-pointer px-1 py-1 text-white w-full bg-yellow z-31"
+                onClick={handleCandidateClick}
+              >
+                hihi
+              </div>
+              <div
+                className="cursor-pointer px-1 py-1 text-white w-full bg-yellow z-31"
+                onClick={handleCandidateClick}
+              >
+                haha
+              </div>
+              <div
+                className="cursor-pointer px-1 py-1 text-white w-full bg-yellow z-31"
+                onClick={handleCandidateClick}
+              >
+                hehe
+              </div>
+            </div>
             <label htmlFor="name" className="form__label">
               {`${items.name}`}
             </label>
@@ -146,18 +177,6 @@ const CardContainer = () => {
     }
   };
 
-  // 检查是否输入完整
-  // const checkInputStatus = () => {
-  //   const inputDom = document.querySelectorAll("input");
-  //   for (var i = 0; i < inputDom.length; i++) {
-  //     if (!inputDom[i].value) {
-  //       setShowOperator(false);
-  //       setWarning(true);
-  //       console.log("missing!");
-  //       break;
-  //     }
-  //   }
-  // };
   const checkInputStatus = () => {
     let checkArr = [];
     document.querySelectorAll("input").forEach((item) => {
