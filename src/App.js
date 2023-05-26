@@ -13,7 +13,7 @@ function App() {
   }, []);
 
   return (
-    <div className="h-full w-full flex items-center justify-center gap-4 p-7 flex-wrap">
+    <div className="h-full w-full flex items-center justify-center gap-4 p-7 flex-wrap pb-20 ">
       <>
         <Item />
       </>

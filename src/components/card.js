@@ -282,14 +282,14 @@ const CardContainer = () => {
           {showOperator && (
             <>
               <button
-                className=" text-white bg-slate-500 shadow-sm p-2 hover:scale-105 transition-all rounded"
+                className=" text-white bg-slate-500 shadow-sm p-2 hover:scale-105 transition-all rounded shadow-md shadow-white"
                 onClick={addCard}
               >
                 添加绑定关系
               </button>
               {!isEmpty && (
                 <button
-                  className="text-white bg-slate-500 shadow-sm p-2 hover:scale-105 transition-all rounded"
+                  className="text-white bg-slate-500 shadow-sm p-2 hover:scale-105 transition-all rounded shadow-md shadow-white"
                   onClick={generateJson}
                   disabled={cards.length === 0}
                 >
