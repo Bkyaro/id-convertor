@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect } from "react";
+import Item from "./components/card";
 
 function App() {
+  useEffect(() => {
+    document.body.classList.add(
+      "bg-gradient-to-r",
+      "from-slate-400",
+      "to-slate-500",
+      "relative"
+    );
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="h-full w-full flex items-center justify-center gap-4 p-7 flex-wrap">
+      <>
+        <Item />
+      </>
     </div>
   );
 }
