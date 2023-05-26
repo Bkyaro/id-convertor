@@ -189,6 +189,7 @@ const CardContainer = () => {
       }
     };
 
+    // eslint-disable-next-line array-callback-return
     sortedData.map((item) => {
       cookedData.push({
         mainSku: `${item.mainSku}`,
