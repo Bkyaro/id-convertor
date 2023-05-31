@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .candidate-shadow {
+    box-shadow: 0px 18px 32px 0px rgb(83, 80, 80);
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .no-scrollbar::-webkit-scrollbar-track {
+    background: none;
+  }
+  .no-scrollbar::-webkit-scrollbar-thumb {
+    background: #2375ac;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #2375ac;
+  }
+  .no-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #2375ac;
+    width: 10px;
+  }
+}
+
 @layer components {
   .glowing {
     box-shadow: 0 0 40px 20px #fff, 0 0 100px 50px #ff0;
@@ -13,7 +39,7 @@
     @apply relative w-full max-w-[120px] pt-5 pb-0 px-0;
   }
   .form__field {
-    @apply w-full text-[14px] text-black transition-[border-color] duration-[0.2s] px-0 py-[4px] border-b-2 border-b-[#9b9b9b] border-[none] border-solid focus:font-bold;
+    @apply w-full text-[14px] text-black transition-[border-color] duration-[0.2s] px-0 py-[4px] border-b-2 border-b-[#9b9b9b] border-[none] border-solid;
     font-family: inherit;
     outline: 0;
     background: transparent;
