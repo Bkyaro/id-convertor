@@ -283,6 +283,7 @@ const CardContainer = () => {
       if (item.index === index) {
         item[name] = value;
       }
+      return true
     });
     setCards(updatedCards);
   };
