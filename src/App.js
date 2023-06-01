@@ -10,6 +10,7 @@ function App() {
       "to-slate-500",
       "relative"
     );
+    document.title = 'ID-SKU generator';
   }, []);
 
   return (

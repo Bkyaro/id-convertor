@@ -35,6 +35,8 @@ const Card = ({ index, onInputChange, onDeleteCard, insert }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    // const { innerText, parentNode } = e.target;
+    // handleSelectChange(inputItems, parentNode.id, innerText);
     onInputChange(index, name, value);
   };
 
@@ -43,7 +45,6 @@ const Card = ({ index, onInputChange, onDeleteCard, insert }) => {
   };
 
   const handleCandidateClick = (e) => {
-    console.log("candidate clicked",e.target.innerText)
     e.preventDefault();
     const { innerText, parentNode } = e.target;
     handleSelectChange(inputItems, parentNode.id, innerText);
@@ -174,6 +175,7 @@ const Card = ({ index, onInputChange, onDeleteCard, insert }) => {
               name={`${items.key}`}
               onChange={handleInputChange}
               defaultValue={`${items.insert}`}
+              // value={`${items.insert}`}
               autoComplete="off"
             />
 
@@ -257,6 +259,9 @@ const CardContainer = () => {
     }
   }, [showResult]);
 
+  const randomIntegerInRange = () =>
+    Math.floor(Math.random() * (6666 - 1 + 1)) + 1;
+
   const hideOperatorButtons = () => {
     setShowOperator(false);
   };
@@ -264,7 +269,7 @@ const CardContainer = () => {
   const addCard = () => {
     setIsEmpty(false);
     setShowResult(false);
-    const newIndex = cards.length + 1;
+    const newIndex = randomIntegerInRange();
 
     const newCard = {
       index: newIndex,
@@ -274,7 +279,11 @@ const CardContainer = () => {
 
   const handleInputChange = (index, name, value) => {
     const updatedCards = [...cards];
-    updatedCards[index - 1][name] = value;
+    updatedCards.map((item) => {
+      if (item.index === index) {
+        item[name] = value;
+      }
+    });
     setCards(updatedCards);
   };
 
@@ -354,7 +363,7 @@ const CardContainer = () => {
       });
     });
 
-    return JSON.stringify(cookedData, null, 2);
+    return JSON.stringify(cookedData, null, 4);
   };
 
   const generateJson = () => {
