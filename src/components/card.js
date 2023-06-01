@@ -43,12 +43,12 @@ const Card = ({ index, onInputChange, onDeleteCard, insert }) => {
   };
 
   const handleCandidateClick = (e) => {
+    console.log("candidate clicked",e.target.innerText)
     e.preventDefault();
     const { innerText, parentNode } = e.target;
     handleSelectChange(inputItems, parentNode.id, innerText);
 
     onInputChange(index, parentNode.id, innerText);
-
   };
 
   const handleSelectChange = (structure, target, insert) => {
@@ -179,7 +179,7 @@ const Card = ({ index, onInputChange, onDeleteCard, insert }) => {
 
             {ifCandidates && (
               <div
-                className="candidate-shadow px-2 no-scrollbar bg-gradient-to-r from-[#116399] to-[#38caef] z-30 absolute border-none h-0 bg-slate-400 w-full  overflow-hidden transition-all duration-200 peer-focus:h-[200px] rounded-b-md peer-focus:min-h-full peer-focus:overflow-y-scroll flex flex-col"
+                className="candidate-shadow px-2 no-scrollbar bg-gradient-to-r from-[#116399] to-[#38caef] z-30 absolute border-none h-0 bg-slate-400 w-full  overflow-hidden transition-all duration-500 peer-focus:h-[200px] rounded-b-md peer-focus:min-h-full peer-focus:overflow-y-scroll flex flex-col"
                 id={`${items.key}`}
               >
                 {candidates.map((item) => {
@@ -302,10 +302,11 @@ const CardContainer = () => {
     // 根据sku生成对应坐标
     const generateCoordinate = (sku) => {
       switch (sku) {
-        case "SLK111ZS":
-        case "SLK111":
+        case "SKL111ZS":
+        case "SKL111":
           return SLK111ZS;
         case "CBS110":
+        case "Kit-11281":
           return CBS110;
         case "XHD083":
           return XHD083;
